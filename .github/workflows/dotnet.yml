@@ -1,7 +1,4 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
-name: .NET
+name: .NET Manual .NET 9.0.x Install
 
 on:
   push:
@@ -11,16 +8,27 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 9.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
+      - uses: actions/checkout@v4
+
+      - name: Install .NET 9.0.x manually
+        run: |
+          # Download the dotnet-install script
+          wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
+          chmod +x dotnet-install.sh
+          # Install the latest available .NET 9.0.x SDK to $HOME/dotnet
+          ./dotnet-install.sh --channel 9.0 --install-dir $HOME/dotnet
+
+      - name: Add .NET SDK to PATH
+        run: echo "$HOME/dotnet" >> $GITHUB_PATH
+
+      - name: Verify .NET installation
+        run: dotnet --version
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build project
+        run: dotnet build --no-restore
