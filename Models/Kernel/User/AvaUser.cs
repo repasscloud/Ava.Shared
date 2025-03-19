@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using Ava.Shared.Models.Policies;
 using Ava.Shared.Validation;
+using Ava.Shared.Models.Kernel.Client;
 
 namespace Ava.Shared.Models.Kernel.User
 {

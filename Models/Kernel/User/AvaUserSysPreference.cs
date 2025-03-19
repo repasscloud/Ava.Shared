@@ -1,6 +1,4 @@
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
+using Ava.Shared.Models.Kernel.Client;
 
 namespace Ava.Shared.Models.Kernel.User
 {

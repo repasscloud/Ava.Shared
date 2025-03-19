@@ -1,5 +1,4 @@
-using System.ComponentModel.DataAnnotations;
-using NanoidDotNet;
+using Ava.Shared.Models.Kernel.Client;
 
 namespace Ava.Shared.Models.Kernel.BoH
 {

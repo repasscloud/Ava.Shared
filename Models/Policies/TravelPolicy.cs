@@ -1,3 +1,5 @@
+using Ava.Shared.Models.Kernel.Client;
+
 namespace Ava.Shared.Models.Policies
 {
     public class TravelPolicy
