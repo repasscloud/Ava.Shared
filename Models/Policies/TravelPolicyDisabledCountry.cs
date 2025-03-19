@@ -1,11 +1,10 @@
-namespace Ava.Shared.Models.Policies
-{
-    // Join entity for disabled countries in a travel policy
-    public class TravelPolicyDisabledCountry {
-        public int TravelPolicyId { get; set; }
-        public TravelPolicy? TravelPolicy { get; set; }
-        
-        public int CountryId { get; set; }
-        public Country? Country { get; set; }
-    }
+namespace Ava.Shared.Models.Policies;
+
+// Join entity for disabled countries in a travel policy
+public class TravelPolicyDisabledCountry {
+    public int TravelPolicyId { get; set; }
+    public TravelPolicy? TravelPolicy { get; set; }
+    
+    public int CountryId { get; set; }
+    public Country? Country { get; set; }
 }

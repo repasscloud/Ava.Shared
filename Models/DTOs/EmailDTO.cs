@@ -1,8 +1,7 @@
 namespace Ava.Shared.Models.DTOs;
 
-public class EmailRequestDto
+public class EmailDTO
 {
-    [Required]
-    [EmailAddress]
+    [JsonPropertyName("email")]
     public required string Email { get; set; }
 }

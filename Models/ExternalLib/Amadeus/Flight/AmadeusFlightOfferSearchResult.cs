@@ -1,7 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
-using Ava.Shared.Validation;
-
 namespace Ava.Shared.Models.ExternalLib.Amadeus.Flight;
 
 public class AmadeusFlightOfferSearchResult

@@ -1,10 +1,9 @@
-namespace Ava.Shared.Models.Static
+namespace Ava.Shared.Models.Static;
+
+public enum FlightTravelClassType
 {
-    public enum FlightTravelClassType
-    {
-        ECONOMY,
-        PREMIUM_ECONOMY,
-        BUSINESS,
-        FIRST
-    }
+    ECONOMY,
+    PREMIUM_ECONOMY,
+    BUSINESS,
+    FIRST
 }

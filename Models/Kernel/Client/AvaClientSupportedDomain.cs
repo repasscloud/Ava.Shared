@@ -1,24 +1,23 @@
-namespace Ava.Shared.Models.Kernel.Client
+namespace Ava.Shared.Models.Kernel.Client;
+
+[Index(nameof(SupportedEmailDomain), IsUnique = true)] // unique index in DB
+public class AvaClientSupportedDomain
 {
-    [Index(nameof(SupportedEmailDomain), IsUnique = true)] // unique index in DB
-    public class AvaClientSupportedDomain
-    {
-        [Key]
-        public int Id { get; set; }
+    [Key]
+    public int Id { get; set; }
 
-        [Required]
-        [Column(TypeName = "varchar(100)")]
-        public required string SupportedEmailDomain { get; set; } // this must be unique
+    [Required]
+    [Column(TypeName = "varchar(100)")]
+    public required string SupportedEmailDomain { get; set; } // this must be unique
 
-        public int AvaClientId { get; set; }
+    public int AvaClientId { get; set; }
 
-        [JsonIgnore] // Prevent circular reference during serialization.
-        public AvaClient? AvaClient { get; set; }
+    [JsonIgnore] // Prevent circular reference during serialization.
+    public AvaClient? AvaClient { get; set; }
 
-        // this is found from the client page itself, it's passed in from the admin portal
-        // and it should always be linked, for other types of lookups, but it's optional here
-        public string? ClientCode { get; set; }
-    }
+    // this is found from the client page itself, it's passed in from the admin portal
+    // and it should always be linked, for other types of lookups, but it's optional here
+    public string? ClientCode { get; set; }
 }
 
 // used to store which email account is associated with which license in Ava, the class does not 

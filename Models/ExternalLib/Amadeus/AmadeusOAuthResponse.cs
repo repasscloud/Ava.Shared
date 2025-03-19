@@ -1,5 +1,3 @@
-using System.Text.Json.Serialization;
-
 namespace Ava.Shared.Models.ExternalLib.Amadeus;
 
 public class AmadeusOAuthResponse
