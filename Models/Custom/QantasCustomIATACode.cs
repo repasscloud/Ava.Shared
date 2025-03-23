@@ -1,4 +1,5 @@
-namespace Ava.API.Models.Kernel.Custom;
+namespace Ava.Shared.Models.Custom;
+
 public class QantasCustomIATACode
 {
     [Key]

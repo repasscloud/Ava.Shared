@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace Ava.Shared.Validation;
 
 public class FareTypeValidationAttribute : ValidationAttribute

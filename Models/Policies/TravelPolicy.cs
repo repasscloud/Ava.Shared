@@ -1,6 +1,5 @@
-
-
 namespace Ava.Shared.Models.Policies;
+
 public class TravelPolicy
 {
     public int Id { get; set; }
@@ -21,9 +20,11 @@ public class TravelPolicy
 
     // flight default details
     [CabinTypeValidation]
+    [DefaultValue("ECONOMY")]
     public string DefaultFlightSeating { get; set; } = "ECONOMY";
 
     [CabinTypeValidation]
+    [DefaultValue("ECONOMY")]
     public string MaxFlightSeating { get; set; } = "ECONOMY";
     
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
