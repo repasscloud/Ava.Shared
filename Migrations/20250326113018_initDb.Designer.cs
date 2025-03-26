@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Ava.Shared.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250319120651_initDb")]
+    [Migration("20250326113018_initDb")]
     partial class initDb
     {
         /// <inheritdoc />

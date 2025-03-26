@@ -22,7 +22,8 @@ Migrate all libraries, interface & services, database context and helper librari
 ### Changed
 - [#xx]()
   Update GlobalUsings.cs file
-- [#xx]()
+- [#2]()
+  Remove SQLite support (58177e5)
   
 ### Fixed
  
