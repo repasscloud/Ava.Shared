@@ -4,6 +4,7 @@ global using System.Collections.Generic;
 global using System.ComponentModel;
 global using System.ComponentModel.DataAnnotations;
 global using System.ComponentModel.DataAnnotations.Schema;
+global using System.Security.Claims;
 global using System.Text.Json.Serialization;
 global using System.Text.RegularExpressions;
 
@@ -22,6 +23,7 @@ global using Ava.Shared.Models.Kernel.User;
 global using Ava.Shared.Models.Policies;
 global using Ava.Shared.Models.Search.Flights;
 global using Ava.Shared.Models.Static;
+global using Ava.Shared.Services;
 global using Ava.Shared.Validation;
 
 global using Microsoft.AspNetCore.Identity;
@@ -32,7 +34,21 @@ global using Microsoft.EntityFrameworkCore.Infrastructure;
 global using Microsoft.EntityFrameworkCore.Migrations;
 global using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Logging;
 
 global using NanoidDotNet;
 global using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+
+
+global using Ava.Shared.Models.ExternalLib.Amadeus.Flight;
+global using Microsoft.AspNetCore.Components.Authorization;
+global using System.Text.Json;
+global using System.Net.Http.Headers;
+global using System.Text;
+global using System.IdentityModel.Tokens.Jwt;
+global using Microsoft.IdentityModel.Tokens;
+global using System.Collections.Concurrent;
+global using Microsoft.AspNetCore.Identity.UI.Services;
+global using Ava.Shared.Identity;
+global using Blazored.LocalStorage;
