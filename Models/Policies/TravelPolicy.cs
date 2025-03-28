@@ -4,21 +4,20 @@ public class TravelPolicy
 {
     public int Id { get; set; }
     public required string PolicyName { get; set; }
-
     public int AvaClientId { get; set; }
 
-    // currency
+    // financial details
+    [Required]
     [CurrencyTypeValidation]
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [RegularExpression(@"^[A-Z]{3}$", ErrorMessage = "Currency must be exactly 3 uppercase letters.")]
     [JsonPropertyName("currency")]
     [DefaultValue("AUD")]
-    public string? Currency { get; set; } = "AUD";
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public required string DefaultCurrencyCode { get; set; } = "AUD";
 
-    // max flight money able to be spent
     public int MaxFlightPrice { get; set; } = 0;
 
-    // flight default details
+    // flight particulars
     [CabinTypeValidation]
     [DefaultValue("ECONOMY")]
     public string DefaultFlightSeating { get; set; } = "ECONOMY";
@@ -32,8 +31,32 @@ public class TravelPolicy
     
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public string? ExcludedAirlineCodes { get; set; }
+
+    [CoverageTypeValidation]
+    [DefaultValue("MOST_SEGMENTS")]
+    public string CabinClassCoverage { get; set; } = "MOST_SEGMENTS";
     public bool NonStopFlight { get; set; } = false;
 
+    // amadeus (and other system) specifics [meta]
+    //public int MaxResults { get; set; } = 20;
+
+    // times for bookings (business rules)
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [RegularExpression(@"^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$", ErrorMessage = "Time must be in the format hh:mm:ss.")]
+    public string? FlightBookingTimeAvailableFrom { get; set; }  // Local time. hh:mm:ss format, e.g 10:30:00
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [RegularExpression(@"^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$", ErrorMessage = "Time must be in the format hh:mm:ss.")]
+    public string? FlightBookingTimeAvailableTo { get; set; }  // Local time. hh:mm:ss format, e.g 10:30:00
+
+    [DefaultValue(false)]
+    public bool EnableSaturdayFlightBookings { get; set; } = false;
+
+    [DefaultValue(false)]
+    public bool EnableSundayFlightBookings { get; set; } = false;
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public int? DefaultCalendarDaysInAdvanceForFlightBooking { get; set; }
 
     [JsonIgnore] // Prevent circular reference during serialization.
     public AvaClient? AvaClient { get; set; }
