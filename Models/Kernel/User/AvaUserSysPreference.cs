@@ -77,7 +77,6 @@ public class AvaUserSysPreference
     [RegularExpression(@"^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$", ErrorMessage = "Time must be in the format hh:mm:ss.")]
     public string? FlightBookingTimeAvailableTo { get; set; }  // Local time. hh:mm:ss format, e.g 10:30:00
 
-
     // things that come from policy ONLY
     // allow bookings on weekends
     [DefaultValue(false)]
