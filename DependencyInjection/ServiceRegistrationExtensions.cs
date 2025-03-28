@@ -22,15 +22,15 @@ public static class ServiceRegistrationExtensions
         services.AddScoped<IJwtTokenService, JwtTokenService>();
 
         // Authentication Info Service
-        services.AddScoped<IAuthenticationInfoService, AuthenticationInfoService>();
+        //services.AddScoped<IAuthenticationInfoService, AuthenticationInfoService>();
 
-        services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
+        //services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
         // User Pref Service
-        services.AddScoped<IAvaUserSysPrefService, AvaUserSysPrefService>();
+        //services.AddScoped<IAvaUserSysPrefService, AvaUserSysPrefService>();
 
         // Add Blazored.LocalStorage (for cookies and stuff)
-        services.AddBlazoredLocalStorage();
+        //services.AddBlazoredLocalStorage();
 
         return services;
     }
