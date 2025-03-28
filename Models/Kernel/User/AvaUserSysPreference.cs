@@ -88,6 +88,14 @@ public class AvaUserSysPreference
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public int? DefaultCalendarDaysInAdvanceForFlightBooking { get; set; }
 
+
+
+
+
+    // travel policy name
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public string? TravelPolicyName { get; set; }
+
     // travel policy - if this is not provided, it will find out if one should exist from
     // the AvaClientId (if provided) else from the email address (if domain exists)
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
