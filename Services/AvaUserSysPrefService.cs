@@ -89,7 +89,6 @@ public class AvaUserSysPrefService : IAvaUserSysPrefService
         return false;
     }
 
-
     public async Task<AvaUserSysPreference> GetUserPrefRecordAsync(string aspNetUserId)
     {
         // TRACE: Entering the method.
